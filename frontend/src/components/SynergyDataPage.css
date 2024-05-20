@@ -1,0 +1,22 @@
+.synergy-data-container {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: white;
+  }
+  
+  .filter-section {
+    background-color: #d3d3d3;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .filter-control {
+    margin-right: 1rem;
+  }

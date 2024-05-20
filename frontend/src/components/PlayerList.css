@@ -1,0 +1,40 @@
+
+.full-player-grid {
+    gap: 20px;
+    padding: 20px;
+  }
+  
+.player-group h3 {
+  margin: 1%;
+  font-size: 3em;
+  text-align: left;
+  color: rgb(136, 0, 0);
+  display: inline-flex;
+}
+
+.visibility-text {
+  
+  text-align: left;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.player-group {
+  background-color: rgba(248, 248, 248, 0.699);
+}
+
+.player-list {
+  margin: 0 2% 0 2%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.player-name {
+  border: solid 1px black; 
+  display: block;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+  

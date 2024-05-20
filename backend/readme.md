@@ -1,0 +1,1 @@
+Backend only repository. Config file relies on .env to be in same folder

@@ -1,0 +1,63 @@
+/* Base page styling */
+body {
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example modern font */
+  }
+  
+  .sidebar {
+    background: linear-gradient(to right, #08818f, #1991f3); /* Subtle gradient for a modern look */
+    border-radius: 10px;
+    padding: 20px;
+    color: #2c3e50; /* Dark grey text for better readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    margin: 15px;
+}
+
+.sidebar img {
+    width: 130px; /* Adjust size accordingly */
+    height: 100px; /* Maintain aspect ratio */
+    border-radius: 20%; /* Circular image */
+    margin: 20px; /* Space below the image */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar li:hover {
+    background-color: #cbcaa5; /* Lighter background on hover */
+    color: #2c3e50; /* Darker text color for contrast */
+}
+
+.sidebar .active {
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #000b47; /* Highlight active tab */
+}
+
+/* Specific styles for player info to differentiate from tabs */
+.sidebar .player-info {
+    font-size: 16px; /* Slightly larger text */
+    color: #cbcaa5; /* Light text color */
+    margin-bottom: 10px;
+}
+
+/* Tabs should be visually distinct */
+.sidebar .tab {
+    font-size: 14px; /* Smaller than player info */
+    color: #c0c0c0; /* Darker text for tabs */
+}
+  /* Main content area styling */
+  .player-content {
+    margin: 10px;
+  }
+  

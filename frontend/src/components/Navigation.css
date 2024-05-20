@@ -1,0 +1,135 @@
+.navbar, .nav-link-account {
+  position: relative;
+  display: flex;
+  background-color: #041e42;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.145rem;
+  font-weight: 600;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.nav-items-left {
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-items-right {
+  position: absolute;
+  right: 1%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #CCCCCC;
+}
+
+.account-menu {
+  position: relative;
+  width: 100px;
+}
+
+.nav-link-account, .account-dropdown {
+  width: 100px;
+  justify-content: center;
+}
+
+.nav-link-account {
+  border-radius: 5%;
+  border: solid 1px #cccccc88;
+  cursor: pointer;
+}
+
+.account-dropdown {
+  position: absolute;
+  border: solid 3px #041e42;
+  border-width: 0 0 6px 0;
+  padding: 20px 0;
+  top: 95%;
+  background-color: #041e42;
+  border-radius: 0 0 5% 5%;
+  z-index: 1000;
+}
+
+.dropdown-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  display: block;
+  padding: 5px 15px;
+}
+
+.dropdown-link:hover, .dropdown-link:focus {
+  background-color: #041e42;
+}
+
+.account-menu:hover .nav-link-account {
+  background-color: #004B8D;
+  border-width: 0;
+}
+
+.account-menu:hover .account-dropdown {
+  border-color: #cccccc88;
+  background-color: #0b68b9;
+}
+
+
+@media (max-width: 992px) { /* Adjust for tablets */
+  .navbar, .nav-link-account {
+      padding: 5px 10px;
+      font-size: 1rem;
+  }
+
+  .nav-items-left, .nav-items-right {
+      gap: 10px;
+      flex-direction: column;
+  }
+
+  .nav-items-right {
+      position: static;
+  }
+
+  .nav-link, .dropdown-link {
+      padding: 3px 5px;
+  }
+
+  .account-menu {
+      width: auto;
+  }
+
+  .nav-link-account, .account-dropdown {
+      width: auto;
+  }
+}
+
+@media (max-width: 768px) { /* Adjust for mobile devices */
+  .navbar {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-items-left, .nav-items-right {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav-link {
+      font-size: 0.9rem;
+  }
+}

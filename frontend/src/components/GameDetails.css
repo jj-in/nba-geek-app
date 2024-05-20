@@ -1,0 +1,65 @@
+.main-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* .scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.team {
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.team-record {
+    font-size: 1em;
+    color: #777;
+    margin: 0;
+}
+
+.team-logo {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.game-info {
+    margin-bottom: 20px;
+}
+
+.tab-container {
+    margin-top: 20px;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    margin-right: -1px;
+    background-color: #f8f8f8;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: none; 
+}
+
+.tab-content {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.inactive-players, .officials {
+    display: none;
+} */
