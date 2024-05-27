@@ -1,35 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-// experimenting with style-components library to organize and align our small team stats table
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const Table = styled.table`
-  width: 80%;
-  border-collapse: collapse;
-  text-align: center;
-
-  th,
-  td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #f2f2f2;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-`;
+import { Container, Table } from 'reactstrap';
 
 const renderTeamStats = (team) => {
   return (
@@ -63,7 +34,7 @@ const BoxScoreTeamStats = ({ data }) => {
 
   return (
     <Container>
-      <Table>
+      <Table bordered hover>
         <thead>
           <tr>
             <th>Team</th>

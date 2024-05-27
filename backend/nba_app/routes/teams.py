@@ -17,9 +17,7 @@ def get_team_by_id(team_id):
 def get_team_roster(team_id, season):
     roster = team_data_service.get_team_roster(team_id, season)
     if roster is not None:
-        # Convert DataFrame to a list of dictionaries
         roster_list = roster.to_dict('records')
-        # Return the JSON response
         return jsonify(roster_list)
     else:
         return jsonify({'error': 'Could not fetch the team roster'}), 500

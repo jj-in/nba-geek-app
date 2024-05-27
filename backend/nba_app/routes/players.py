@@ -121,3 +121,11 @@ def get_player_synergy_data(player_id):
     except Exception as e:
         logging.error(f"Error fetching player synergy data: {e}")
         return jsonify({'error': 'Failed to fetch player synergy data'}), 500
+
+@players_blueprint.route('/players/game_logs/<int:player_id>/', methods=['GET'])
+def get_game_logs(player_id):
+    try:
+        game_logs = player_data_service.get_game_logs_and_win_loss(player_id)
+        return jsonify(game_logs)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

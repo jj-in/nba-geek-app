@@ -12,31 +12,28 @@ const PlayerPage = () => {
 
     // Function to handle tab click that our sidebar component uses to toggle between player stat tabs
     const onTabClick = (tab) => {
-      setActiveTab(tab);
+        setActiveTab(tab);
     };
-  
+
     const renderTabContent = () => {
         switch (activeTab) {
-          case 'Career':
-            return <PlayerCareer />;
+            case 'Career':
+                return <PlayerCareer />;
             case 'Synergy Plays':
-              return <PlayerSynergy />;
-          default:
-            return <PlayerCareer />;
+                return <PlayerSynergy />;
+            default:
+                return <PlayerCareer />;
         }
-      };
-    
-      return (
-        <PlayerProvider playerId={playerId}>
-          <div style={{ display: 'flex' }}>
-            <Sidebar activeTab={activeTab} onTabClick={setActiveTab} />
-            <main>{renderTabContent()}</main>
-          </div>
-        </PlayerProvider>
-      );
     };
-    
-    export default PlayerPage;
 
+    return (
+        <PlayerProvider playerId={playerId}>
+            <div style={{ display: 'flex' }}>
+                <Sidebar activeTab={activeTab} onTabClick={onTabClick} />
+                <main>{renderTabContent()}</main>
+            </div>
+        </PlayerProvider>
+    );
+};
 
-    
+export default PlayerPage;

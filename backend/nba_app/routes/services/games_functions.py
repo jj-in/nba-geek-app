@@ -20,19 +20,16 @@ def fetch_live_scores():
         return None
 
 def fetch_scoreboard_date(game_date):
-    try:
         # Initialize the ScoreboardV2 with the desired parameters
         # Offsetting (-1) goes back a day, (+1) goes forward day, etc
-        scoreboard = scoreboardv2.ScoreboardV2(game_date=game_date, league_id='00', day_offset=0)
-        scoreboard_data = scoreboard.get_normalized_dict()
-        if not scoreboard:
-            logging.error(f"No scoreboard data for that date.")
-            return None
-        return scoreboard_data
-    
+    try:
+        scoreboard_info = scoreboard.ScoreboardV2(game_date=game_date)
+        scoreboard_data = scoreboard_info.get_dict()
+        return {'GameHeader': scoreboard_data['resultSets'][0]['rowSet']}
     except Exception as e:
-        logging.error(f"Error fetching scoreboard: {e}")
+        logging.error(f"Error fetching scoreboard data for {game_date}: {e}")
         return None
+
 
 def fetch_game_details(game_id):
     try:

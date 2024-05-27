@@ -1,70 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import { Container, Button, Table } from 'reactstrap';
 import MyApi from '../utils/MyApi';
 import TeamLogo from './TeamLogo';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const TopContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-`;
-
-const TeamInfo = styled.p`
-  text-align: center;
-  margin: 5px;
-  padding: 5px;
-`;
-
-const SeasonBox = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-`;
-
-const SeasonText = styled.span`
-  margin: 0 10px;
-`;
-
-const Button = styled.button`
-  padding: 5px 10px;
-  margin: 0 5px;
-  background-color: blue;
-  border: none;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
-
-const Table = styled.table`
-  width: 80%;
-  border-collapse: collapse;
-  text-align: center;
-
-  th,
-  td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #f2f2f2;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-`;
 
 const TeamRoster = () => {
   const { teamId } = useParams();
@@ -108,22 +46,24 @@ const TeamRoster = () => {
 
   return (
     <Container>
-      <TopContainer>
-        <TeamInfo>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <div className="text-center">
           {team.abbreviation && (
             <TeamLogo teamTricode={team.abbreviation.toUpperCase()} size={30} />
           )}
-          {team.full_name} Roster
-        </TeamInfo>
-        <SeasonBox>
-          <Button onClick={handlePrevSeason}>
+          <p>{team.full_name} Roster</p>
+        </div>
+        <div className="d-flex align-items-center">
+          <Button color="primary" onClick={handlePrevSeason}>
             Previous
           </Button>
-          <SeasonText>{season}</SeasonText>
-          <Button onClick={handleNextSeason} disabled={season === '2023-24'}>Next</Button>
-        </SeasonBox>
-      </TopContainer>
-      <Table>
+          <span className="mx-2">{season}</span>
+          <Button color="primary" onClick={handleNextSeason} disabled={season === '2023-24'}>
+            Next
+          </Button>
+        </div>
+      </div>
+      <Table bordered hover>
         <thead>
           <tr>
             <th>Player</th>

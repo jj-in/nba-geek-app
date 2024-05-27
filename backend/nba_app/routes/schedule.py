@@ -12,4 +12,4 @@ def fetch_live_scores():
 @schedule_blueprint.route('/schedule/<date>', methods=['GET'])
 def fetch_old_scores(date):    
     scores = games_data_service.get_scoreboard_date(date)
-    return jsonify(scores['GameHeader'])
+    return jsonify(scores)

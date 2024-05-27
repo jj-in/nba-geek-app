@@ -2,7 +2,8 @@ from .static_data_functions import find_team_name_by_id
 from .player_functions import (
     fetch_complete_career_stats_json, 
     fetch_player_info,
-    fetch_player_id
+    fetch_player_id,
+    fetch_player_game_logs_and_win_loss
 )
 from .team_functions import fetch_team_roster
 from .boxscore_functions import(  
@@ -22,9 +23,6 @@ from .games_functions import(
     fetch_scoreboard_date,
     fetch_game_details
 )
-from .playbyplay_functions import(  
-    fetch_game_pbp
-)
 
 class PlayerData:
 
@@ -42,6 +40,11 @@ class PlayerData:
     def get_bio_json(cls, player_id):
         player_bio = fetch_player_info(player_id)
         return player_bio   
+    
+    @classmethod
+    def get_game_logs_and_win_loss(cls, player_id):
+        player_data = fetch_player_game_logs_and_win_loss(player_id)
+        return player_data  
 
 class TeamData:
 
@@ -125,10 +128,3 @@ class GamesData:
         game = fetch_game_details(game_id)
         return game
 
-
-class PlayByPlayData:
-    
-    @classmethod
-    def get_full_pbp(cls, game_id):
-        pbp_data = fetch_game_pbp(game_id)
-        return pbp_data
