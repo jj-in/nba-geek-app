@@ -1,7 +1,7 @@
 from os import environ, path
 from dotenv import load_dotenv
 
-basedir = path.abspath('/home/justin/my-nba-app-backend/nba_geek')
+basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))
 
 class Config:
@@ -20,4 +20,13 @@ class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = environ.get("TEST_DATABASE_URI", "sqlite:///:memory:")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEBUG = True
+
+class ProductionConfig(Config):
+    """Configurations for Production."""
+    FLASK_ENV = 'production'
+
+class DevelopmentConfig(Config):
+    """Configurations for Development."""
+    FLASK_ENV = 'development'
     DEBUG = True
