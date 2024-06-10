@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { ThemeProvider } from '@mui/material/styles';
-import Theme from './Theme';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext';
@@ -11,13 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
-  <ThemeProvider theme={Theme}>
   <UserProvider>
   <Router>
     <App />
   </Router>
-  </UserProvider>
-  </ThemeProvider>,
+  </UserProvider>,
   document.getElementById('root')
 );
 // If you want to start measuring performance in your app, pass a function

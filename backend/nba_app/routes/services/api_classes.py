@@ -20,7 +20,7 @@ from .boxscore_functions import(
 )
 from .games_functions import(  
     fetch_live_scores,
-    fetch_scoreboard_date,
+    fetch_old_games,
     fetch_game_details
 )
 
@@ -120,7 +120,7 @@ class GamesData:
     
     @classmethod
     def get_scoreboard_date(cls, date):
-        scoreboard = fetch_scoreboard_date(date)
+        scoreboard = fetch_old_games(date)
         return scoreboard
     
     @classmethod

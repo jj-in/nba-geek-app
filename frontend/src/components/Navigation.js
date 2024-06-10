@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import './Navigation.css';
@@ -35,7 +35,7 @@ const Navigation = () => {
       <div className="nav-items-right">
         <Link to="/players" className="nav-link">Players</Link>
         <Link to="/teams" className="nav-link">Teams</Link>
-        <Link to="/synergy/league" className="nav-link">Stats</Link>
+        <Link to="/synergy/league" className="nav-link">Synergy</Link>
         <div onMouseLeave={hideDropdown} className="account-menu">
           <button onClick={toggleDropdown} className="nav-link nav-link-account">Account</button>
           {isDropdownOpen && (

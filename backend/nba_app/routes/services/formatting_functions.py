@@ -42,10 +42,9 @@ def format_future_game_details(game_data):
         }
     }  
     return game_details
-
 def format_completed_game_details(game_data):
     transformed_data = {
-        "GameStatus": {"GAME_STATUS_TEXT": game_data["GameSummary"][0]["GAME_STATUS_TEXT"]},
+        "GameStatus": {"GAME_STATUS_TEXT": 'Final'},
         "GameDetails": [],
         "TeamScores": [],
         "TeamStats": [],
@@ -58,10 +57,11 @@ def format_completed_game_details(game_data):
     line_scores = {team["TEAM_ID"]: team for team in game_data["LineScore"]}
     other_stats = {team["TEAM_ID"]: team for team in game_data["OtherStats"]}
     last_meeting = game_data["LastMeeting"][0]
+    season = game_summary["SEASON"]
 
     transformed_data["GameDetails"].append({
         "GAME_DATE": game_summary["GAME_DATE_EST"][:10],
-        "SEASON": game_summary["SEASON"] + "-24",
+        "SEASON": season + '-' + str(int(season)+1)[-2:],
         "GAME_ID": game_summary["GAME_ID"],
         "HOME_TEAM_ID": game_summary["HOME_TEAM_ID"],
         "AWAY_TEAM_ID": game_summary["VISITOR_TEAM_ID"],

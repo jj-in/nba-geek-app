@@ -2,6 +2,8 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 const ScoreTable = ({ teamScores }) => {
+    if(!Object.keys(teamScores[1])[0]) return;
+    
     const quarters = ['QTR1', 'QTR2', 'QTR3', 'QTR4'];
     const overtimes = ['OT1', 'OT2', 'OT3', 'OT4', 'OT5', 'OT6', 'OT7', 'OT8', 'OT9', 'OT10'];
     const awayTeam = Object.keys(teamScores[1])[0];

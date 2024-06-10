@@ -81,7 +81,6 @@ const BoxScorePage = () => {
         {activeTab === 'hustle' && gameData.hustle && <BoxScoreHustle data={gameData.hustle} />}      
         {activeTab === 'defensive' && gameData.defensive && <BoxScoreDefense data={gameData.defensive} />}      
         {activeTab === 'teams' && gameData.teams && <BoxScoreTeamStats data={gameData.teams} />}      
-
       </div>
     </div>
   );

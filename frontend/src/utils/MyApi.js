@@ -78,6 +78,16 @@ class MyApi {
       throw new Error(error.response.data.error);
     }
   }
+  
+  static async fetchGameLogs(playerId) {
+    try {
+      const response = await api.get(`/api/players/game_logs/${playerId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Failed to fetch player data ${playerId}:`, error);
+      throw new Error(error.response.data.error);
+    }
+  }
 
   // Fetch player playtype tracking for playerpage
   static async fetchPlayerSynergy (playerId) {

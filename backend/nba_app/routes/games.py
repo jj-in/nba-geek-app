@@ -97,7 +97,7 @@ def get_tracking_boxscore(game_id):
         if tracking_stats:
             return jsonify(tracking_stats)
         else:
-            return jsonify({'error': 'Tracking stats not found'}), 404
+            return
     except Exception as e:
         logging.error(f"Error fetching tracking stats: {e}")
         return jsonify({'error': 'Failed to fetch tracking stats'}), 500

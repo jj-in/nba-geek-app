@@ -11,6 +11,7 @@ import TeamRoster from './components/TeamRoster';
 import BoxScorePage from './components/BoxScorePage';
 import GameDetails from './components/GameDetails';
 import SynergyDataPage from './components/SynergyDataPage';
+import NotFound from './components/NotFound';
 import { LeagueProvider } from './contexts/LeagueContext'
 import Footer from './components/Footer';
 
@@ -30,6 +31,7 @@ const ReactRoutes = () => {
             <Route path="/team/:teamId" element={<TeamRoster />} />
             <Route path="/game/:gameId" element={<GameDetails />} />
             <Route path="/game/boxscore/:gameId" element={<BoxScorePage />} />
+            <Route path="*" element={<NotFound />} /> 
         </Routes>
         <Footer />
         </LeagueProvider>

@@ -8,9 +8,13 @@ logging.basicConfig(level=logging.INFO)
 
 def fetch_boxscore_summary(game_id):
     # notably includes referee data and team data+stats
-    box = boxscoresummaryv2.BoxScoreSummaryV2(game_id=game_id)
-    summary_data = box.get_normalized_dict()
-    return summary_data
+    try:
+        box = boxscoresummaryv2.BoxScoreSummaryV2(game_id=game_id)
+        summary_data = box.get_normalized_dict()
+        return summary_data
+    except Exception as e:
+        logging.error(f"Error fetching box score summary: {e}")
+        return None
 
 def fetch_boxscore_traditional_player(game_id):
     # Consolidating the various datasets returned by BoxScoreTraditionalV2 and organizing them into a list of dictionaries
@@ -56,81 +60,103 @@ def fetch_boxscore_traditional_team(game_id):
         return None
 
 def fetch_boxscore_advanced_player(game_id):
-    box_score = boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=game_id)
-    player_data = box_score.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box_score = boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=game_id)
+        player_data = box_score.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}
 
 
 def fetch_boxscore_advanced_team(game_id):
-    box_score = boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=game_id)
-    advanced_team_stats = box_score.get_normalized_dict()
-    return advanced_team_stats
+    try:
+        box_score = boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=game_id)
+        advanced_team_stats = box_score.get_normalized_dict()
+        return advanced_team_stats
+    except Exception:
+        return {'message': 'no data for this game'}
     
 def fetch_boxscore_hustle(game_id):
-    box_score = boxscorehustlev2.BoxScoreHustleV2(game_id=game_id)
-    player_data = box_score.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box_score = boxscorehustlev2.BoxScoreHustleV2(game_id=game_id)
+        player_data = box_score.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}
 
 
 def fetch_boxscore_defensive(game_id):
-    box_score = boxscoredefensivev2.BoxScoreDefensiveV2(game_id=game_id)
-    player_data = box_score.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box_score = boxscoredefensivev2.BoxScoreDefensiveV2(game_id=game_id)
+        player_data = box_score.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}
+
 
 def fetch_boxscore_tracking(game_id):
-    box_score = boxscoreplayertrackv3.BoxScorePlayerTrackV3(game_id=game_id)
-    player_data = box_score.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box_score = boxscoreplayertrackv3.BoxScorePlayerTrackV3(game_id=game_id)
+        player_data = box_score.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}
 
 
 def fetch_boxscore_matchups(game_id):
-    box = boxscorematchupsv3.BoxScoreMatchupsV3(game_id=game_id)
-    player_data = box.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box = boxscorematchupsv3.BoxScoreMatchupsV3(game_id=game_id)
+        player_data = box.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}
 
 def fetch_boxscore_usage(game_id):
-    box = boxscoreusagev3.BoxScoreUsageV3(game_id=game_id)
-    player_data = box.player_stats.get_data_frame()
-    player_data_list = player_data.to_dict(orient='records')
-    team_players = {}
-    for player in player_data_list:
-        team_code = player.get('teamTricode')
-        if team_code not in team_players:
-            team_players[team_code] = []
-        team_players[team_code].append(player)
-    return team_players
+    try:
+        box = boxscoreusagev3.BoxScoreUsageV3(game_id=game_id)
+        player_data = box.player_stats.get_data_frame()
+        player_data_list = player_data.to_dict(orient='records')
+        team_players = {}
+        for player in player_data_list:
+            team_code = player.get('teamTricode')
+            if team_code not in team_players:
+                team_players[team_code] = []
+            team_players[team_code].append(player)
+        return team_players
+    except Exception:
+        return {'message': 'no data for this game'}

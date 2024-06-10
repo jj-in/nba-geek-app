@@ -5,7 +5,7 @@ import { Table } from 'reactstrap';
 // reactstrap Table fits page well, styling beyond stripe feels unnecessary for now
 
 const BoxScoreAdvancedPlayer = ({ data }) => {
-  if (!data) return <div>No Data Available</div>;
+    if (data.message) return <div>No Advanced Stats Available For This Game</div>;
 
   const renderPlayerRow = (player) => {
     if (player.possessions !== 0) {

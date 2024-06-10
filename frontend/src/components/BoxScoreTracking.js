@@ -5,7 +5,7 @@ import { Table } from 'reactstrap';
 // reactstrap Table fits page well, styling beyond stripe feels unnecessary for now
 
 const BoxScoreTracking = ({ data }) => {
-  if (!data) return <div>No Tracking Data Available</div>;
+  if (data.message) return <div>No Tracking Data Available</div>;
 
   const renderPlayerRow = (player) => (
     <tr key={player.personId}>

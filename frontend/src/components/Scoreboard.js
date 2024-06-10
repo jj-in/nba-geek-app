@@ -27,6 +27,7 @@ const Scoreboard = () => {
   }
 
   return (
+    (games[0] ? 
     <div>
       <h2>Today's Scores</h2>
       {games.map((game) => (
@@ -47,6 +48,9 @@ const Scoreboard = () => {
         </div>
       ))}
     </div>
+    :
+    <h4>No games today</h4>
+    )
   );
 };
 

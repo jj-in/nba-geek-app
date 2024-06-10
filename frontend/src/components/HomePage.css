@@ -1,0 +1,39 @@
+.main-container {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+
+.welcome, .scores {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .welcome {
+    flex: 1;
+    min-width: 300px;
+    justify-content: left;
+    position: relative;
+    left: 10%;
+  }
+  
+  .scores {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    justify-content: right;
+  }
+  
+  .list{
+    list-style-type: none; 
+    padding: 0;
+  }
+
+
+  @media (max-width: 768px) {
+    .welcome, .scores {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }

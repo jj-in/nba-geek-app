@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Utility class for all calls to backend that relate to authorization/users
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // Create axios instance to centralize configuration
 const api = axios.create({

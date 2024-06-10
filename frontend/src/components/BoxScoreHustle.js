@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Table } from 'reactstrap';
 
 const BoxScoreHustle = ({ data }) => {
-  if (!data) return <div>No Data Available</div>;
+  if (data.message) return <div>No Hustle Stats Available For This Game</div>;
 
   const renderPlayerRow = (player) => (
     <tr key={player.personId}>

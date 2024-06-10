@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MyApi from '../utils/MyApi';
 import { useLeague } from '../contexts/LeagueContext';
-import { Input, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, Select, MenuItem, FormControl, InputLabel, Typography, Box } from '@mui/material';
+import { Input, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, Select, MenuItem, FormControl, InputLabel, Typography } from '@mui/material';
 import './SynergyDataPage.css'
 
 const SynergyDataPage = () => {
@@ -166,7 +166,7 @@ const SynergyDataPage = () => {
     </Grid>
       <TableContainer component={Paper} sx={{marginTop: 2}}>
         <Table size="small">
-            <TableHead>
+            <TableHead backgroundColor='#e0e0e0'>
                 <TableRow>
                   <TableCell>#</TableCell>
                     {[['player_name', 'Player'], ['season_id', 'Season'], ['team_abbreviation', 'Team'], ['play_type', 'Play Type'], ['gp', 'GP'], ['ppp', 'PPP'], ['poss', 'Possessions'], ['pts', 'Points'], ['fg_pct', 'FG%'], ['efg_pct', 'EFG%'], ['frequency', 'Frequency'], ['score_frequency', 'Score Frequency'], ['percentile', 'Percentile']].map((col) => (
