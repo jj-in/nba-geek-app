@@ -39,7 +39,9 @@ Currently deployed at: https://nba-geek-23.surge.sh/
 - Node.js and npm (for frontend)
 
 ## Backend Notes
+# General concept
     The API is designed to be RESTful, providing a clean and easy-to-use with json responses that you could run independently of this version's react frontend.
+# View readme file in backend folder for more specific instructions
     Ensure to create .env with your actual values for the config.py to find.
     Database setup includes a sql data file to load Synergy Tracking data for all players since stat tracking feature has existed (2016). The actual nba-api route for this data has very little flexibility, making it impossible to sort and compare the stats with any degree of customization without accumulating all of the data into a dataset first.
 
