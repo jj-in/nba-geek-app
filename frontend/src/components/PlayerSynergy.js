@@ -15,7 +15,6 @@ function PlayerSynergy() {
     const [chartData, setChartData] = useState({ labels: [], datasets: [] });
     const [sortConfig, setSortConfig] = useState({ key: 'Season', direction: 'asc' });
 
-    // Our playerData from context provides us an array of objects for every db entry (all seasons, playtypes)
     // Create our lists of a player's valid seasons and playtypes for filtering first, making sure our select menu is populated
     useEffect(() => {
         if (playerData && playerData.synergyData) {
@@ -24,7 +23,7 @@ function PlayerSynergy() {
             setSelectedYear(seasons.includes(selectedYear) ? selectedYear : 'All');
             setSelectedPlayType(playTypes.includes(selectedPlayType) ? selectedPlayType : 'All');
         }
-    }, [playerData]);
+    }, [playerData, selectedYear, selectedPlayType]);
 
     // Effect for filtering data, renders whenever we change season, playtype or sort category/direction
     useEffect(() => {

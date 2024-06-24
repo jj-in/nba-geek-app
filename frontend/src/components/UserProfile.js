@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '../contexts/UserContext';
-import PlayerCard from './PlayerCard'
+import PlayerCard from './PlayerCard';
 import AuthApi from '../utils/AuthApi';
 import './FormStyles.css';
 
@@ -9,22 +9,21 @@ const UserProfile = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const profileData = await AuthApi.fetchUserProfile(user);
+        setFavorites(profileData.favorites);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
     if (user) {
       fetchFavorites();
     }
-  }, []);
-
-  const fetchFavorites = async () => {
-    try {
-      const profileData = await AuthApi.fetchUserProfile(user);
-      setFavorites(profileData.favorites);
-    } catch (error) {
-      console.error("Error fetching profile:", error);
-    }
-  };
+  }, [user]);
 
   // just using css class to center align
-  
   return (
     <div className="main-form">
       <h1>{user}'s Profile</h1>

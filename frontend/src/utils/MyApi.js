@@ -2,8 +2,7 @@ import axios from "axios";
 
 // Utility class for all NBA-API calls to backend that do not require authorization
 
-// process.env.REACT_APP_BASE_URL || 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL
 
 // Create axios instance with headers for streamlined api request format
 const api = axios.create({
@@ -123,9 +122,7 @@ class MyApi {
 
 
     try {
-        console.log(params.toString())
         const response = await api.get(`/api/players/synergy?${params.toString()}`);
-        console.log(response)
         return response.data
     } catch (error) {
         console.error('Error fetching synergy data:', error);

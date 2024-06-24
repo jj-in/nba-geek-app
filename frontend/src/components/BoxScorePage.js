@@ -6,7 +6,7 @@ import BoxScoreAdvancedPlayer from './BoxScoreAdvancedPlayer';
 import BoxScoreHustle from './BoxScoreHustle';
 import BoxScoreTracking from './BoxScoreTracking';
 import BoxScoreDefense from './BoxScoreDefense';
-import BoxScoreTeamStats from './BoxScoreTeamStats'
+import BoxScoreTeamStats from './BoxScoreTeamStats';
 
 // Large boxscore component that houses all the specific box score subcomponents, rendered via tabs.
 // traditional box loads initially, then each other box score loads via fetch when tab is clicked
@@ -29,26 +29,22 @@ const BoxScorePage = () => {
           const gameData = await MyApi.fetchGameSummary(gameId);
           setGameDetails(gameData);
           const data = await MyApi.fetchTraditionalBox(gameId);
-          setGameData({ ...gameData, traditional: data });
+          setGameData(prev => ({ ...prev, traditional: data }));
         } else if (activeTab === 'advanced') {
           const data = await MyApi.fetchAdvancedPlayerBox(gameId);
-          setGameData({ ...gameData, advanced: data });
-        }
-        else if (activeTab === 'tracking') {
+          setGameData(prev => ({ ...prev, advanced: data }));
+        } else if (activeTab === 'tracking') {
           const data = await MyApi.fetchTrackingBox(gameId);
-          setGameData({ ...gameData, tracking: data });
-        }
-        else if (activeTab === 'hustle') {
+          setGameData(prev => ({ ...prev, tracking: data }));
+        } else if (activeTab === 'hustle') {
           const data = await MyApi.fetchHustleBox(gameId);
-          setGameData({ ...gameData, hustle: data });
-        }
-        else if (activeTab === 'defensive') {
+          setGameData(prev => ({ ...prev, hustle: data }));
+        } else if (activeTab === 'defensive') {
           const data = await MyApi.fetchDefensiveBox(gameId);
-          setGameData({ ...gameData, defensive: data });
-        }
-        else if (activeTab === 'teams') {
+          setGameData(prev => ({ ...prev, defensive: data }));
+        } else if (activeTab === 'teams') {
           const data = await MyApi.fetchTeamStatsBox(gameId);
-          setGameData({ ...gameData, teams: data });
+          setGameData(prev => ({ ...prev, teams: data }));
         }
       } catch (error) {
         console.error(`Failed to fetch data for ${activeTab} box score:`, error);
