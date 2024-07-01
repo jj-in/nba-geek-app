@@ -3,6 +3,9 @@
 NBA Geek is a web application that provides detailed statistics and information about NBA players, teams, games, and schedules. It is built mainly off of the python nba-api library (https://github.com/swar/nba_api). The main goal of the site is to allow users to access less traditional basketball stats data from various sources to present users with comprehensive insights into their favorite players and teams, historical and current game data, and live score updates.
 
 Currently deployed at: https://nba-geek-23.surge.sh/
+Please read my medium article on how I was able to successfully deploy this app despite nba.com blocking all requests from Heroku IPs (among other cloud platforms).
+https://medium.com/@inman.justin/working-around-nba-coms-ip-ban-for-cloud-hosted-nba-api-apps-90326ab2632c
+Note: deployed version does not work as consistently as local version if you clone this repo to run on your machine
 
 ## Features
 
